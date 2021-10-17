@@ -1,9 +1,11 @@
 
 const {Router} = require("express");
 const multer = require("multer");
-
+const path = require("path");
+const { response } = require("../app");
 
 const router = Router();
+const photoPath = path.resolve(__dirname, "../../client/photo-viewer.html")
 
 function filename(request, file, callback){
     callback(null, file.originalname)
@@ -28,6 +30,10 @@ function fileFilter(request, file, callback){
 const upload = multer({
     fileFilter,
     storage,
+})
+
+router.get("/photo-viewer", (request, response)=>{
+    response.sendFile(photoPath)
 })
 
 router.post("/upload", upload.single("photo"), (request, response)=>{
