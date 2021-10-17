@@ -11,7 +11,7 @@
     "test:module-4": "node node_modules/mocha/bin/mocha ./test/module-4/*test.js || true",
     "start": "node api/index.js || true"
   },
-  "author": "",
+  "author": "Mohammed Ali",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
